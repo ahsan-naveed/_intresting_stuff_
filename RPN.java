@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.stream.*;
 
-// Implementation of reverse polish notation - algorithm adapted from leetcode.come
+// Implementation of reverse polish notation - algorithm adapted from leetcode.com
 // Author: Ahsan Naveed
 // Date: June 11, 2017
 

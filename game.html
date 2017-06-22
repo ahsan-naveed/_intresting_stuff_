@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas is FUN - ping pong</title>
+</head>
+<body>
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+<script type="text/javascript">
+	const PADDLE_HEIGHT = 100;
+	var paddle1Y = 250;
+	var paddle2Y = 0;
+	var ballX = 50;
+	var ballY = 50;
+	var ballSpeedX = 10;
+	var ballSpeedY = 4;
+	var canv;
+	var canvCtxt;	
+	function calcMousePos(evt){
+		var rect = document.getElementById('gameCanvas').getBoundingClientRect();
+		var root = document.documentElement;
+		var mouseX = evt.clientX - rect.left - root.scrollLeft;
+		var mouseY = evt.clientY - rect.Top - root.scrollTop;
+		return {
+			x: mouseX,
+			y: mouseY
+		}
+	}
+	window.onload = function(){
+		canv = document.getElementById('gameCanvas');
+		canvCtxt = canv.getContext('2d');
+		var fps = 30
+		setInterval(function(){
+			moveEverything();
+			drawEverything();
+		}, 1000/fps);
+		canv.addEventListener('mousemove', function (evt) {
+			var mousePos = calcMousePos(evt);
+			paddle1Y = mousePos.y;
+		});
+	}
+	function moveEverything(){
+			ballX += ballSpeedX;
+			ballY += ballSpeedY;
+			if(ballY > canv.height){
+				ballSpeedY = -ballSpeedY;
+			}
+			if(ballY < 0 ){
+				ballSpeedY = -ballSpeedY;
+			}
+			if(ballX > canv.width){
+				ballSpeedX = -ballSpeedX;
+			}
+			if(ballX < 0){
+				ballSpeedX = -ballSpeedX;
+			}
+	}
+	function drawEverything(){	
+		colorRect(0,0,canv.width, canv.height,'black');
+		//left player paddle
+		colorRect(0, paddle1Y, 10, PADDLE_HEIGHT, 'white');
+		// ball
+		colorCircle(ballX, ballY, 10, 'white');
+	}
+	function colorCircle(centerX, centerY, radius, drawColor){
+		canvCtxt.fillSytle = drawColor;
+		canvCtxt.beginPath();
+		canvCtxt.arc(centerX, centerY, radius, 0, Math.PI*2, true)
+		canvCtxt.fill();
+	}
+	function colorRect(leftX, topY, width, height, drawColor){
+		canvCtxt.fillStyle = drawColor;
+		canvCtxt.fillRect(leftX, topY, width, height);
+	}
+</script>
+
+</body>
+</html>

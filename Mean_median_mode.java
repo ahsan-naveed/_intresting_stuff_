@@ -9,7 +9,7 @@ public class Mean_median_mode {
         Integer N = Integer.parseInt(scan.nextLine());
         String[] X = scan.nextLine().split(" ");
         System.out.println(Double.toString(mean(N, X)));
-        System.out.println(median(N, X));
+        System.out.println(Double.toString(median(N, X)));
         System.out.println(Integer.toString(mode(N, X)));
     }
     

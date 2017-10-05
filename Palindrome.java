@@ -1,3 +1,7 @@
+/*
+skipping of non-alphanumeric character - adapted form leetcode
+*/
+
 import java.util.*;
 
 public class Palindrome {

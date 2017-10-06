@@ -22,8 +22,7 @@ public class ReverseString {
 		String[] strs = str.trim().split("\\s+");
 		for (int i = strs.length - 1; i >= 0; i--) {
 			StringBuilder temp = new StringBuilder();
-			temp.append(strs[i]);
-			temp.append(" ");
+			temp.append(strs[i]).append(" ");
 			rstr.append(temp);
 		}
 		return new String(rstr).trim();

@@ -7,7 +7,9 @@ public class ReverseStringII {
 		StringBuilder str = new StringBuilder("the sky is blue");
 		System.out.println(reverse(new StringBuilder(reverse(str))));
 	}
-	public static String reverse(StringBuilder str) {
+	
+	// wrong solution - wait till I post the correct solution
+	/*public static String reverse(StringBuilder str) {
 		int i = 0, j = str.length() - 1;
 		while (i != j) {
 			char temp = str.charAt(i);
@@ -17,5 +19,5 @@ public class ReverseStringII {
 			j--;
 		}
 		return new String(str);
-	}
+	}*/
 }

@@ -19,6 +19,17 @@ public class MissingRanges {
 				else ranges.add(LRange+"->"+RRange);
 			}
 		}
+		// for inclusive boundaries
+		int leftBoundary = start - nums[0];
+		if ( Math.abs(leftBoundary) > 1) {
+			ranges.add(0, String.valueOf(start)+"->"+String.valueOf(nums[0]-1));
+		} else if (Math.abs(leftBoundary) == 1) {
+			ranges.add(0, String.valueOf(leftBoundary));
+		}
+		int endOfnums = nums[nums.length-1];
+		if (Math.abs(endOfnums - end) > 1) {
+			ranges.add(ranges.size(), String.valueOf(endOfnums + 1)+"->"+String.valueOf(end));	
+		}
 		return ranges;
 	}
 }

@@ -10,9 +10,11 @@ public class RevInt {
 		System.out.println(reverse(Integer.MIN_VALUE));
 	}
 	public static int reverse(int x) {
+		int maxDiv10 = Integer.MAX_VALUE/10;
 		int ret = 0;
 		while (x != 0) {
-			if(Math.abs(ret) > Integer.MAX_VALUE/10) return 0;
+			// handles overflow/underflow
+			if(Math.abs(ret) > maxDiv10) return 0;
 			ret = ret * 10 + x % 10;
 			x /= 10;
 		}

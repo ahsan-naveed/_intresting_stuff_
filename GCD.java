@@ -25,3 +25,6 @@ public class GCD {
 		return gcd.intValue();
 	}
 }
+
+// javac GCD.java
+// java GCD
